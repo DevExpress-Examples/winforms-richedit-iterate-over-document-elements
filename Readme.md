@@ -1,3 +1,9 @@
+<!-- default file list -->
+*Files to look at*:
+
+* [Form1.cs](./CS/DocumentIteratorExample/Form1.cs) (VB: [Form1.vb](./VB/DocumentIteratorExample/Form1.vb))
+* [Program.cs](./CS/DocumentIteratorExample/Program.cs) (VB: [Program.vb](./VB/DocumentIteratorExample/Program.vb))
+<!-- default file list end -->
 # How to use the Document Iterator object to iterate over document elements
 
 
