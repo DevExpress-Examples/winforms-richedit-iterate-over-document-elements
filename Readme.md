@@ -3,17 +3,29 @@
 [![](https://img.shields.io/badge/Open_in_DevExpress_Support_Center-FF7200?style=flat-square&logo=DevExpress&logoColor=white)](https://supportcenter.devexpress.com/ticket/details/T384347)
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 <!-- default badges end -->
-<!-- default file list -->
-*Files to look at*:
+
+# WinForms Rich Text Editor - How to Use the Document Iterator Object to Iterate over Document Elements
+
+The following example shows how to use the Visitor-Iterator pattern to format document text:
+
+* Enclose bold text in asterisks
+* Return all characters without formatting
+* Replace paragraph ends with newline symbols
+
+Other document elements are skipped.
+
+## Implementation Details
+
+This example creates a [DocumentIterator](https://docs.devexpress.com/OfficeFileAPI/DevExpress.XtraRichEdit.API.Native.DocumentIterator) instance for the current document and calls its [MoveNext](https://docs.devexpress.com/OfficeFileAPI/devexpress.xtrarichedit.api.native.documentiterator.movenext.overloads) method to iterate over document elements.
+
+A **Visitor** pattern is implemented to process a document element. The implementation is done by calling each element's [Accept](https://docs.devexpress.com/OfficeFileAPI/DevExpress.XtraRichEdit.API.Native.IDocumentElement.Accept(DevExpress.XtraRichEdit.API.Native.IDocumentVisitor)) method with the **MyVisitor** object instance as a parameter.
+
+`MyVisitor` is a custom class that descends from the [DocumentVisitorBase](https://docs.devexpress.com/OfficeFileAPI/DevExpress.XtraRichEdit.API.Native.DocumentVisitorBase) class. It contains a method that processes [DocumentText](https://docs.devexpress.com/OfficeFileAPI/DevExpress.XtraRichEdit.API.Native.DocumentText) elements to enclose bold text in asterisks and return all characters without formatting. Paragraph ends are replaced with newline symbols, other document elements are skipped.
+
+## Files to Review
 
 * [Form1.cs](./CS/DocumentIteratorExample/Form1.cs) (VB: [Form1.vb](./VB/DocumentIteratorExample/Form1.vb))
-* [Program.cs](./CS/DocumentIteratorExample/Program.cs) (VB: [Program.vb](./VB/DocumentIteratorExample/Program.vb))
-<!-- default file list end -->
-# How to use the Document Iterator object to iterate over document elements
 
+## Documentation
 
-This example creates a <a href="http://help.devexpress.com/#CoreLibraries/clsDevExpressXtraRichEditAPINativeDocumentIteratortopic">DocumentIterator</a> instance for the current document and calls its <a href="http://help.devexpress.com/#CoreLibraries/DevExpressXtraRichEditAPINativeDocumentIterator_MoveNexttopic">MoveNext</a> method to iterate over document elements. A <strong>Visitor pattern </strong>is implemented to process a document element. The implementation is done by calling each element's <a href="http://help.devexpress.com/#CoreLibraries/DevExpressXtraRichEditAPINativeIDocumentElement_Accepttopic">Accept</a>  method with the <strong>MyVisitor</strong> object instance as a parameter. <strong><br>MyVisitor </strong>is a custom class which descends from the <strong>DocumentVisitorBase </strong>class and provides a method that processes <a href="http://help.devexpress.com/#CoreLibraries/clsDevExpressXtraRichEditAPINativeDocumentTexttopic">DocumentText</a> elements to enclose <a href="http://help.devexpress.com/#CoreLibraries/DevExpressXtraRichEditAPINativeCharacterPropertiesBase_Boldtopic">Bold</a> text in asterisks and return all characters without formatting. Paragraph ends are replaced with newline symbols, other document elements are skipped.<br>You can customize MyVisitor class to perform any operation with any type of element which the DocumentIterator encounters.
-
-<br/>
-
-
+* [How to: Retrieve the List of Document Fonts using the Visitor-Iterator Pattern](https://docs.devexpress.com/WindowsForms/116746/controls-and-libraries/rich-text-editor/examples/automation/how-to-retrieve-the-list-of-document-fonts-using-the-visitor-iterator-pattern)
